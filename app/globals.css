@@ -1,21 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Default (light) body styles */
 body {
   color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  background-attachment: fixed; /* helps with smooth scrolling */
+  /* Light gradient, left to right */
+  background: linear-gradient(
+    to right,
+    #edf2fb 0%,
+    #e2eafc 25%,
+    #d7e3fc 50%,
+    #ccdbfd 75%,
+    #c1d3fe 100%
+  );
+
+  /* Enable a smooth fade on background & color changes */
+  transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+/* Dark mode override: apply when <html> has .dark */
+html.dark body {
+  /* Dark gradient, left to right */
+  background: linear-gradient(
+    to right,
+    #1a1a1a 0%,
+    #222222 25%,
+    #2a2a2a 50%,
+    #323232 75%,
+    #3a3a3a 100%
+  );
+}
+
+.font-futuristic {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Smooth scrolling utility */
+.scroll-smooth {
+  scroll-behavior: smooth;
 }
